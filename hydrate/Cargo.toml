@@ -1,0 +1,15 @@
+[package]
+name = "hydrate"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+apps = {path= "../apps"}
+console_error_panic_hook = "0.1.7"
+leptos = { version = "0.6.15", features = ["hydrate"] }
+leptos_meta = { version = "0.6.15", features = ["hydrate"] }
+leptos_router = { version = "0.6.15", features = ["hydrate"] }
+wasm-bindgen = "=0.2.93"

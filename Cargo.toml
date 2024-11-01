@@ -1,0 +1,31 @@
+[workspace]
+members = [
+  "apps","hydrate","server"
+]
+resolver = "2"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[workspace.dependencies]
+leptos = { version = "0.6.15", default-features = false}
+leptos_actix = "0.6.15"
+leptos_meta = { version = "0.6.15", default-features = false}
+leptos_router = { version = "0.6.15", default-features = false}
+
+
+[[workspace.metadata.leptos]]
+name = "personal_web"
+bin-package = "server"
+lib-package = "hydrate"
+site-root = "target/site"
+site-addr = "127.0.0.1:3000"
+reload-port = 3001
+browserquery = "defaults"
+env="DEV"
+site-pkg-dir = "pkg"
+style-file = "style/main.scss"
+assets-dir = "assets"
