@@ -12,10 +12,10 @@ panic = "abort"
 
 [workspace.dependencies]
 leptos = { version = "0.6.15", default-features = false}
-leptos_actix = "0.6.15"
 leptos_meta = { version = "0.6.15", default-features = false}
 leptos_router = { version = "0.6.15", default-features = false}
-
+thaw = {version = "0.3.4", default-features = false}
+stylance = "0.5.2"
 
 [[workspace.metadata.leptos]]
 name = "personal_web"
@@ -27,5 +27,5 @@ reload-port = 3001
 browserquery = "defaults"
 env="DEV"
 site-pkg-dir = "pkg"
-style-file = "style/main.scss"
-assets-dir = "assets"
+style-file = "stylance/_index.scss"
+assets-dir = "apps/src/assets"

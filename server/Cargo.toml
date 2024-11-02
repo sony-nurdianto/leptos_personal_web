@@ -11,3 +11,4 @@ leptos = { version = "0.6.15", features = ["ssr"] }
 leptos_actix = "0.6.15"
 leptos_meta = { version = "0.6.15", features = ["ssr"] }
 leptos_router = { version = "0.6.15", features = ["ssr"] }
+thaw = { version = "0.3.4", features = ["ssr"] }

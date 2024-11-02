@@ -12,4 +12,5 @@ console_error_panic_hook = "0.1.7"
 leptos = { version = "0.6.15", features = ["hydrate"] }
 leptos_meta = { version = "0.6.15", features = ["hydrate"] }
 leptos_router = { version = "0.6.15", features = ["hydrate"] }
+thaw = { version = "0.3.4", features = ["hydrate"] }
 wasm-bindgen = "=0.2.93"
