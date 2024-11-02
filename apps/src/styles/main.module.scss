@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 
-body {
-  font-family: Sriracha, sans-serif;
+
+main {
+  font-family: 'Sriracha', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,10 +13,56 @@ body {
   margin: 0;
 }
 
+
 button {
-  font-family: Sriracha, sans-serif;
+  font-family: 'Sriracha', sans-serif;
+}
+
+
+.button_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+  background-position: center;
+  color: black;
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), background 0.8s;
+}
+
+.button_nav:hover {
+  transform: scale(1.2) translateY(-12px);
+  background: transparent radial-gradient(circle, transparent 1%, rgba(255, 69, 0, 0.2) 1%) center/15000%;
+}
+
+.button_nav:active {
+  background-color: transparent;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+
+
+.floating_navi {
+  position: fixed;
+  bottom: 4vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
 }
 
 .test {
-  color: blue;
+  color: orangered
 }
