@@ -8,6 +8,7 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 icondata = "0.4.0"
+icondata_core = "0.1.0"
 leptos.workspace = true
 leptos_meta.workspace = true
 leptos_router.workspace = true

@@ -11,6 +11,7 @@ main {
   width: 100vw;
   overflow: auto;
   margin: 0;
+  // background-color: #F8F4EC;
 }
 
 
@@ -39,14 +40,14 @@ button {
 
 .button_nav-fd36f7c:hover {
   transform: scale(1.2) translateY(-12px);
-  background: transparent radial-gradient(circle, transparent 1%, rgba(255, 69, 0, 0.2) 1%) center/15000%;
+  // background: transparent radial-gradient(circle, transparent 1%, rgba(255, 69, 0, 0.2) 1%) center/15000%;
 }
 
-.button_nav-fd36f7c:active {
-  background-color: transparent;
-  background-size: 100%;
-  transition: background 0s;
-}
+// .button_nav:active {
+//   background-color: transparent;
+//   background-size: 100%;
+//   transition: background 0s;
+// }
 
 
 
@@ -57,7 +58,7 @@ button {
   transform: translateX(-50%);
   background-color: #fff;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 25px;
   box-shadow:
     0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 999;

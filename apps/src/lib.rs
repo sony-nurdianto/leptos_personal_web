@@ -1,14 +1,18 @@
 mod views;
 
 use leptos::{
-    component, create_rw_signal, create_signal, view, IntoView, Show, SignalGet, SignalSet,
-    SignalUpdate, SignalWith,
+    component, create_effect, create_rw_signal, create_signal, ev::MouseEvent, view, IntoView,
+    Show, SignalGet, SignalUpdate, SignalWith,
 };
 use leptos_meta::{provide_meta_context, Stylesheet, Title};
 use leptos_router::{Route, Router, Routes};
 use thaw::{Flex, GlobalStyle, Icon, Theme, ThemeProvider};
-use views::pages::{
-    homepage::HomePage, not_found::NotFoundPage, portofolio::PortofolioPage, profile::ProfilePage,
+use views::{
+    components::navigation::NavComponent,
+    pages::{
+        homepage::HomePage, not_found::NotFoundPage, portofolio::PortofolioPage,
+        profile::ProfilePage,
+    },
 };
 
 use stylance::import_crate_style;
@@ -19,13 +23,28 @@ pub fn App() -> impl IntoView {
     let theme = create_rw_signal(Theme::light());
     let (dark, set_dark) = create_signal(false);
 
-    let dark_signal = move |_| {
+    create_effect(move |_| {
+        theme.update(|t| {
+            t.common.background_color = "#F8F4EC".to_string();
+            t.common.font_color = "black".to_string();
+        });
+    });
+
+    let dark_signal = move |_: MouseEvent| {
         set_dark.update(|dark| *dark = !*dark);
         dark.with(|dark| {
             if *dark {
-                theme.set(Theme::dark())
+                theme.update(|t| {
+                    t.common.background_color = "#021526".to_string();
+                    t.common.font_color = "#fff".to_string();
+                });
+                // theme.set(Theme::dark())
             } else {
-                theme.set(Theme::light())
+                theme.update(|t| {
+                    t.common.background_color = "#F8F4EC".to_string();
+                    t.common.font_color = "black".to_string();
+                });
+                // theme.set(Theme::light())
             }
         });
     };
@@ -47,50 +66,27 @@ pub fn App() -> impl IntoView {
                 </main>
                 <nav class=style::floating_navi>
                     <Flex>
-                        <button
-                            on:click=move |_| {
-                                let navigate = leptos_router::use_navigate();
-                                navigate("", Default::default());
-                            }
-
-                            class=style::button_nav
-                        >
-                            <Icon icon=icondata::IoHomeOutline />
-                        </button>
-                        <button
-                            on:click=move |_| {
-                                let navigate = leptos_router::use_navigate();
-                                navigate("/profile", Default::default());
-                            }
-
-                            class=style::button_nav
-                        >
-                            <Icon icon=icondata::SiCodeproject />
-                        </button>
-                        <button
-                            on:click=move |_| {
-                                let navigate = leptos_router::use_navigate();
-                                navigate("/portofolio", Default::default());
-                            }
-
-                            class=style::button_nav
-                        >
-                            <Icon icon=icondata::AiExperimentTwotone />
-                        </button>
-
+                        <NavComponent />
                         <Show
                             when=move || dark.get()
                             fallback=move || {
                                 view! {
-                                    <button on:click=dark_signal class=style::button_nav>
-                                        <Icon icon=icondata::BsMoonStars />
+                                    <button
+                                        on:click=dark_signal
+                                        class=style::button_nav
+                                        style="color: orangered"
+                                    >
+                                        <Icon icon=icondata::OcSunSm />
                                     </button>
                                 }
                             }
                         >
-                            <button on:click=dark_signal class=style::button_nav>
-                                <Icon icon=icondata::OcSunSm />
-
+                            <button
+                                on:click=dark_signal
+                                class=style::button_nav
+                                style="color: #03c6fc"
+                            >
+                                <Icon icon=icondata::BsMoonStars />
                             </button>
 
                         </Show>
