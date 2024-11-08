@@ -11,7 +11,6 @@ use stylance::import_crate_style;
 #[derive(Debug, Clone)]
 pub struct NavData {
     pub path: &'static str,
-    // pub path: String,
     pub icon_active: &'static IconData,
     pub icon_inactive: &'static IconData,
 }
@@ -54,10 +53,7 @@ impl NavData {
                             when=move || active.get()
                             fallback=move || {
                                 view! {
-                                    <button
-                                        class=style::button_nav
-                                        on:click=click_event
-                                    >
+                                    <button class=style::button_nav on:click=click_event>
                                         <Icon
                                             style="color: black"
                                             icon=iter_data_nav.icon_inactive
@@ -66,9 +62,7 @@ impl NavData {
                                 }
                             }
                         >
-                            <button
-                                class=style::button_nav
-                                on:click=click_event                            >
+                            <button class=style::button_nav on:click=click_event>
                                 <Icon style="color: #06D001" icon=iter_data_nav.icon_active />
                             </button>
                         </Show>
