@@ -7,7 +7,7 @@ use nav_data::NavData;
 pub mod nav_data;
 
 use stylance::import_crate_style;
-use thaw::{Flex, Icon, Theme};
+use thaw::{Flex, FlexJustify, Icon, Theme};
 
 #[component]
 pub fn NavComponent(theme: RwSignal<Theme>, theme_signal: RwSignal<bool>) -> impl IntoView {
@@ -33,8 +33,11 @@ pub fn NavComponent(theme: RwSignal<Theme>, theme_signal: RwSignal<bool>) -> imp
 
     create_effect(move |_| {
         theme.update(|t| {
-            t.common.background_color = "#F8F4EC".to_string();
+            t.common.background_color = "#EEEEEE".to_string();
             t.common.font_color = "black".to_string();
+            t.common.color_primary = "#563A9C".to_string();
+            t.common.color_primary_hover = "#4C1F7A".to_string();
+            t.common.color_primary_active = "#563A9C".to_string();
         });
     });
 
@@ -57,7 +60,7 @@ pub fn NavComponent(theme: RwSignal<Theme>, theme_signal: RwSignal<bool>) -> imp
 
     view! {
         <nav class=style::floating_navi>
-            <Flex>
+            <Flex justify=FlexJustify::SpaceAround>
                 {NavData::get_nav(nav_items)}
                 <Show
                     when=move || theme_signal.get()

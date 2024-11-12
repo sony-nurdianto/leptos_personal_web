@@ -55,7 +55,7 @@ impl NavData {
                                 view! {
                                     <button class=style::button_nav on:click=click_event>
                                         <Icon
-                                            style="color: black"
+                                            style="color: black;font-size: 2vw"
                                             icon=iter_data_nav.icon_inactive
                                         />
                                     </button>
@@ -63,7 +63,10 @@ impl NavData {
                             }
                         >
                             <button class=style::button_nav on:click=click_event>
-                                <Icon style="color: #06D001" icon=iter_data_nav.icon_active />
+                                <Icon
+                                    style="color: #06D001; font-size: 2vw"
+                                    icon=iter_data_nav.icon_active
+                                />
                             </button>
                         </Show>
                     }
