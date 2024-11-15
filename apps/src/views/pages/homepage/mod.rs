@@ -9,15 +9,25 @@ pub fn HomePage(isdark: RwSignal<bool>) -> impl IntoView {
     view! {
         <Flex
             style="
-            padding: 3vw"
+            padding: 3vw;
+            height: 100%;
+            box-sizing: border-box"
             vertical=true
-            // gap=FlexGap::WH(40, 0)
+            gap=FlexGap::WH(40, 0)
             align=FlexAlign::Center
+            // justify=FlexJustify::Center
         >
+            <Flex>
+                <Avatar
+                    round=true
+                    src="https://s3.bmp.ovh/imgs/2021/10/723d457d627fe706.jpg"
+                    size=200
+                />
+            </Flex>
             <Flex
                 style="line-height: 2vw"
                 vertical=true
-                justify=FlexJustify::Center
+                // justify=FlexJustify::Center
                 align=FlexAlign::Center
             >
                 <Flex align=FlexAlign::Center>
@@ -49,46 +59,38 @@ pub fn HomePage(isdark: RwSignal<bool>) -> impl IntoView {
                     "On a Journey to Build Better Technology for a Future Beyond Boundaries."
                 </h1>
             </Flex>
+            <Flex
+                style="
+                width: 100vw;
+                margin-left: -50px;
+                margin-right: -50px;
+                padding-top: 1vw;
+                padding-bottom: 1vw;
+                background-color: #219B9D;
+                // border-bottom-left-radius: 45px;
+                // border-bottom-right-radius: 45px
+                "
+                justify=FlexJustify::Center
+            >
+                <Flex style="width:50vw;" justify=FlexJustify::SpaceBetween align=FlexAlign::Center>
+                    <Icon style="font-size: 3.5vw; color:#EEEEEE" icon=icondata::SiRust />
+                    <Icon style="font-size: 4vw; color:#EEEEEE" icon=icondata::BiTypescript />
+                    <Icon style="font-size: 4vw; color:#EEEEEE" icon=icondata::BiHtml5 />
+                    <Icon style="font-size: 4vw; color:#EEEEEE" icon=icondata::BiCss3 />
+                    <Icon style="font-size: 4vw; color:#EEEEEE" icon=icondata::SiDocker />
+                    <Icon style="font-size: 3.5vw; color:#EEEEEE" icon=icondata::SiKubernetes />
+                </Flex>
+            </Flex>
             <Flex>
                 <Button style="
-                width: 10vw; 
-                height:2.5vw;
-                font-size: 1vw;
+                margin-top: 1.5vw;
+                width: 12vw;
+                height:3vw;
+                font-size: 1.2vw;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                ">
-                    "Download Cv"
-                </Button>
+                border-radius: 30px;
+                ">"Download Cv"</Button>
             </Flex>
-            <hr style="width: 100vw; margin-left: -50px; margin-right: -50px; margin-top: 2vw"/>
-            <Flex vertical=true>
-                <Flex justify=FlexJustify::Center style="font-size: 0.8vw;">
-                    <h1 style="margin: 0">"Tech ToolBox :"</h1>
-                </Flex>
-                <Flex
-                    style="
-                    width: 100vw;
-                    margin-left: -50px;
-                    margin-right: -50px;
-                    padding-top: 1vw;
-                    padding-bottom: 1vw;
-                    background-color: #219B9D"
-                    justify=FlexJustify::Center
-                >
-                    <Flex
-                        style="width:50vw;"
-                        justify=FlexJustify::SpaceBetween
-                        align=FlexAlign::Center
-                    >
-                        <Icon style="font-size: 3vw; color:#EEEEEE" icon=icondata::SiRust />
-                        <Icon style="font-size: 3.5vw; color:#EEEEEE" icon=icondata::BiTypescript />
-                        <Icon style="font-size: 3.5vw; color:#EEEEEE" icon=icondata::BiHtml5 />
-                        <Icon style="font-size: 3.5vw; color:#EEEEEE" icon=icondata::BiCss3 />
-                        <Icon style="font-size: 3.5vw; color:#EEEEEE" icon=icondata::SiDocker />
-                        <Icon style="font-size: 3vw; color:#EEEEEE" icon=icondata::SiKubernetes />
-                    </Flex>
-                </Flex>
-            </Flex>
-            <hr style="width: 100vw; margin-left: -50px; margin-right: -50px;  margin-top: 2.5vw" />
         </Flex>
     }
 }
